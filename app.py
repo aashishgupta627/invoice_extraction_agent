@@ -10,6 +10,24 @@ from pathlib import Path
 from datetime import datetime
 import pandas as pd
 
+import os
+import streamlit as st
+
+# ----------------------------------------------------------------------
+# Load secrets into environment (for local .env compatibility)
+# ----------------------------------------------------------------------
+try:
+    # If running on Streamlit Cloud, secrets are available
+    if "OPENROUTER_API_KEY" in st.secrets:
+        os.environ["OPENROUTER_API_KEY"] = st.secrets["OPENROUTER_API_KEY"]
+    # Optionally set model and base URL too
+    if "OPENROUTER_MODEL" in st.secrets:
+        os.environ["OPENROUTER_MODEL"] = st.secrets["OPENROUTER_MODEL"]
+    if "OPENROUTER_BASE_URL" in st.secrets:
+        os.environ["OPENROUTER_BASE_URL"] = st.secrets["OPENROUTER_BASE_URL"]
+except Exception:
+    pass  # local mode, use .env or system env
+
 # Add parent directory to sys.path to import project modules
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
