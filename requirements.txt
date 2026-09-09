@@ -2,3 +2,9 @@ streamlit
 pandas
 openpyxl
 langgraph
+langgraph-checkpoint-sqlite
+langchain-openai
+langchain-core
+python-dotenv
+openai
+pymupdf
