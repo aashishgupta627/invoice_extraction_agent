@@ -31,7 +31,7 @@ except Exception:
 # Add parent directory to sys.path to import project modules
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from shared.db import init_db, get_invoice, save_invoice, get_all_invoices
+from shared.db import init_db, get_invoice, save_invoice
 from shared.logging_config import get_logger
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.errors import GraphInterrupt
